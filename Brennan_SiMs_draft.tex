@@ -1,0 +1,137 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+
+\usepackage{jheppub} % for details on the use of the package, please
+                     % see the JHEP-author-manual
+
+% additional packages
+\usepackage{lineno}
+\usepackage{caption}
+\usepackage{subcaption}		% needed for making subfigures
+\usepackage{multirow}		% for multirow capabilities in tables
+\usepackage{tikz}		% for drawing Feynman diagrams directly
+\usepackage{array}      	% needed for defining new column type
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{rotating}   % for sidewaysfigure
+\usepackage{afterpage}  % to make sidewaysfigures appear in the paper rather than at the end
+%\usepackage{parskip}		% used to remove paragraph indentation
+
+\usepackage{hyperref}
+
+% tikz definitions
+\tikzstyle arrowformat=[scale=1.5]
+\tikzstyle scalar =[dashed]
+\tikzstyle mom=[draw=blue]
+\tikzset{
+gluon/.style={decorate, draw=black, decoration={coil, amplitude = 3.5pt, segment length=4.8pt}},
+photon/.style={decorate, draw=black, decoration={snake=coil, amplitude = 2pt, segment length=9pt}},
+zbo/.style={decorate, draw=black, decoration={snake=coil}},
+fermion/.style={draw=black, postaction={decorate}, decoration={markings, mark = at position 0.55 with {\arrow[arrowformat]{>}}}},
+antifermion/.style={draw=black, postaction={decorate}, decoration={markings, mark = at position 0.55 with {\arrow[arrowformat]{<}}}}
+}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathmorphing,decorations.markings, decorations.pathreplacing, trees}
+
+% shortcuts
+\newcommand{\MG}{M{\footnotesize AD}G{\footnotesize RAPH}5 }
+\newcommand{\MGnospace}{M{\footnotesize AD}G{\footnotesize RAPH}5}
+\newcommand{\PYTHIA}{P{\footnotesize YTHIA} 8 }
+\newcommand{\PYTHIAnospace}{P{\footnotesize YTHIA} 8}
+\newcommand{\FASTJET}{F{\footnotesize AST}J{\footnotesize ET}}
+\newcommand\T{\rule{0pt}{2.6ex}}       				% Top strut - useful for additional space in tables
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} 				% Bottom strut - see above
+\newcommand{\met}{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}}		% shorthand for missing ET
+\newcommand{\metvec}{\vec{E}_{\mathrm{T}}^{\mathrm{miss}}}	% shorthand for missing ET vector
+\newcommand{\mDM}{m_{\mathrm{DM}}}
+\newcommand{\mX}{m_{\chi}}
+\newcommand{\Mmed}{M_{\mathrm{med}}}
+\newcommand{\Mstar}{M_{\star}}					% shorthand for M*
+\newcommand{\monoZ}{mono-$Z$(lep) }
+\newcommand{\monojet}{mono-jet }
+\newcommand{\monoWZ}{mono-$W/Z$(had) }
+\newcommand{\monoX}{mono-$X$ }
+\newcommand{\monoXnospace}{mono-$X$}
+\newcommand{\gq}{g_q}
+\newcommand{\gX}{g_{\chi}}
+\newcommand{\sqrtgqgX}{\sqrt{g_q g_{\chi}}}
+\newcommand{\gqX}{g_{q \chi}}
+
+\newcommand{\sigv}{\langle\sigma v\rangle} %annihilation cross section
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}       % used for centering columns of the same width
+
+%\linenumbers		% turn on line numbers
+
+%%%%%%% title, paper structure %%%%%%%%
+
+\title{Collide and Conquer: Constraints on Simplified Dark Matter Models using Mono-$X$ Collider Searches}
+
+\author[a,1]{A. J. Brennan,\note{Corresponding author.}}
+\author[a]{M. F. McDonald,}
+\author[b]{J. Gramling}
+\author[c]{and T. D. Jacques}
+
+%% The "\note" macro will give a warning: "Ignoring empty anchor..."
+%% you can safely ignore it.
+
+\affiliation[a]{ARC Centre of Excellence for Particle Physics at the Terascale \\ School of Physics, The University of Melbourne, Victoria 3010, Australia}
+\affiliation[b]{Universit\'{e} de Gen\`{e}ve, Quai E. Ansermet 24, 1211 Gen\`{e}ve 4, Switzerland}
+\affiliation[c]{SISSA/ISAS, via Bonomea 265, 34136 Trieste, Italy}
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{amelia.brennan@coepp.org.au}
+\emailAdd{millie.mcdonald@coepp.org.au}
+\emailAdd{johanna.gramling@cern.ch}
+\emailAdd{thomas.jacques@sissa.it}
+
+\abstract{The use of simplified models as a tool for interpreting dark matter collider searches has become increasingly prevalent, and while early Run II results are beginning to appear, we look to see what further information can be extracted from the Run I dataset. We consider three `standard' simplified models that couple quarks to fermionic singlet dark matter: an $s$-channel vector mediator with vector or axial-vector couplings, and a $t$-channel scalar mediator. Upper limits on the couplings are calculated and compared across three alternate channels, namely mono-jet, mono-$Z$ (leptonic) and mono-$W/Z$ (hadronic). The strongest limits are observed in the mono-jet channel, however the computational simplicity and absence of significant $t$-channel model width effects in the mono-boson channels make these a straightforward and competitive alternative. We also include a comparison with relic density and direct detection constraints.}
+
+\begin{document}
+
+\hfill
+SISSA 18/2016/FISI
+
+\maketitle
+\flushbottom
+
+\section{Introduction}
+\label{sec:sec1}
+\input{Introduction.tex}
+
+\section{Simplified model phenomenology}
+\label{sec:sec2}
+\input{Models.tex}
+
+\section{Recasting mono-$X$ constraints}
+\label{sec:sec3}
+\input{Reanalysis.tex}
+
+\section{Results and discussion}
+\label{sec:sec4}
+\input{Results.tex}
+
+\section{Conclusion}
+\label{sec:sec5}
+\input{Conclusion.tex}
+
+\section{Acknowledgements}
+\label{sec:sec6}
+\input{Acknowledgements.tex}
+
+\appendix
+
+\section{Limit setting strategy}
+\label{Appendix_limitsetting}
+\input{AppendixA.tex}
+
+\section{Validation of signal simulation and event selection procedures}
+\label{Appendix_validation}
+\input{AppendixB.tex}
+
+\begin{thebibliography}{99}
+\input{References.tex}
+\end{thebibliography}
+\end{document}
